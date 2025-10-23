@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="uk">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+            #letters {
+                display: flex;
+                flex-wrap: wrap;
+                margin-top: 10px;
+            }
+            #letters div {
+                border: 1px solid #aaa;
+                padding: 10px 15px;
+                margin: 5px;
+                font-size: 1.2em;
+                font-family: monospace;
+                cursor: pointer;
+                user-select: none;
+            }
+            #letters div:hover {
+                background-color: #f0f0f0;
+            }
+
+            body {
+                font-family: sans-serif;
+            }
+            ul, #name-display, #letters {
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+                border-bottom: 2px solid #eee;
+            }
+        </style>
+    </head>
+    <body>
+
+        <script>
+            var myName = "Vlad";
+            var nameList = document.createElement('ul');
+            document.body.appendChild(nameList);
+
+            for (var i = 0; i < myName.length; i++) {
+                var letter = myName[i];
+                var li = document.createElement('li');
+                li.innerHTML = letter;
+
+                li.onmouseover = function() {
+                    alert(this.innerHTML);
+                };
+
+                nameList.appendChild(li);
+            }
+        </script>
+
+        <script>
+            var nameDisplay = document.createElement('div');
+            nameDisplay.id = 'name-display';
+
+            var title = document.createElement('h2');
+            title.innerHTML = 'Введені прізвивища та імена:';
+            nameDisplay.appendChild(title);
+
+            document.body.appendChild(nameDisplay);
+
+            var input = prompt("Введіть прізвище та ім'я:");
+
+            while (input !== null) {
+
+                if (input.trim() !== "") {
+                    var nameParagraph = document.createElement('p');
+                    nameParagraph.innerHTML = input;
+                    nameDisplay.appendChild(nameParagraph);
+                }
+
+                input = prompt("Введіть прізвище та ім'я:");
+            }
+        </script>
+
+        <script>
+            var myLastName = "Yevchuk";
+
+            var button = document.createElement('button');
+            button.innerHTML = 'Показати блоки';
+            document.body.appendChild(button);
+
+            var container = document.createElement('div');
+            container.id = 'letters';
+            document.body.appendChild(container);
+
+            button.onclick = function() {
+                if (container.innerHTML !== "") {
+                    container.innerHTML = '';
+                } else {
+                    for (var i = 0; i < myLastName.length; i++) {
+                        var letter = myLastName[i];
+                        var div = document.createElement('div');
+                        div.innerHTML = letter;
+
+                        div.onmouseover = function() {
+                            alert('Це літера [' + this.innerHTML + ']');
+                        };
+
+                        container.appendChild(div);
+                    }
+                }
+            };
+        </script>
+
+    </body>
+</html>
