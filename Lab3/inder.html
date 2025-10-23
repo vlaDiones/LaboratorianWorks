@@ -2,108 +2,116 @@
 <html lang="uk">
     <head>
         <meta charset="UTF-8">
-        <title>Document</title>
-        <style>
-            #letters {
-                display: flex;
-                flex-wrap: wrap;
-                margin-top: 10px;
-            }
-            #letters div {
-                border: 1px solid #aaa;
-                padding: 10px 15px;
-                margin: 5px;
-                font-size: 1.2em;
-                font-family: monospace;
-                cursor: pointer;
-                user-select: none;
-            }
-            #letters div:hover {
-                background-color: #f0f0f0;
-            }
-
-            body {
-                font-family: sans-serif;
-            }
-            ul, #name-display, #letters {
-                margin-bottom: 20px;
-                padding-bottom: 10px;
-                border-bottom: 2px solid #eee;
-            }
-        </style>
+        <title>Generators and Context</title>
     </head>
     <body>
 
+        <h2>Завдання 1: Генератор випадкових чисел</h2>
+        <button id="next">Next number</button>
+        <div id="out" style="font-size: 1.5em; margin-top: 10px;"></div>
+        <hr>
+
+        <h2>Завдання 2: Генератор паролів</h2>
+        <p>Відкрийте консоль і дотримуйтесь інструкцій у prompt().</p>
+        <hr>
+
+        <h2>Завдання 3: Генератор діалогів (Чат-бот)</h2>
+        <p>Дотримуйтесь інструкцій у prompt().</p>
+        <hr>
+
+        <h2>Завдання 4: Втрата контексту 'this'</h2>
+        <button id="hello">Say</button>
+        <hr>
+
+
         <script>
-            var myName = "Vlad";
-            var nameList = document.createElement('ul');
-            document.body.appendChild(nameList);
-
-            for (var i = 0; i < myName.length; i++) {
-                var letter = myName[i];
-                var li = document.createElement('li');
-                li.innerHTML = letter;
-
-                li.onmouseover = function() {
-                    alert(this.innerHTML);
-                };
-
-                nameList.appendChild(li);
-            }
-        </script>
-
-        <script>
-            var nameDisplay = document.createElement('div');
-            nameDisplay.id = 'name-display';
-
-            var title = document.createElement('h2');
-            title.innerHTML = 'Введені прізвивища та імена:';
-            nameDisplay.appendChild(title);
-
-            document.body.appendChild(nameDisplay);
-
-            var input = prompt("Введіть прізвище та ім'я:");
-
-            while (input !== null) {
-
-                if (input.trim() !== "") {
-                    var nameParagraph = document.createElement('p');
-                    nameParagraph.innerHTML = input;
-                    nameDisplay.appendChild(nameParagraph);
+            function* randomGenerator(min, max) {
+                while (true) {
+                    const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+                    yield randomNum;
                 }
-
-                input = prompt("Введіть прізвище та ім'я:");
             }
+
+            const min = parseInt(prompt("Завдання 1: Введіть MIN число:"));
+            const max = parseInt(prompt("Завдання 1: Введіть MAX число:"));
+
+            const generator = randomGenerator(min, max);
+
+            const nextButton = document.getElementById('next');
+            const outDiv = document.getElementById('out');
+
+            nextButton.addEventListener('click', () => {
+                outDiv.textContent = generator.next().value;
+            });
         </script>
 
         <script>
-            var myLastName = "Yevchuk";
+            function* passwordGenerator() {
+                let password = '';
+                while (true) {
+                    const char = yield;
 
-            var button = document.createElement('button');
-            button.innerHTML = 'Показати блоки';
-            document.body.appendChild(button);
+                    if (char === 'done') {
+                        break;
+                    }
 
-            var container = document.createElement('div');
-            container.id = 'letters';
-            document.body.appendChild(container);
-
-            button.onclick = function() {
-                if (container.innerHTML !== "") {
-                    container.innerHTML = '';
-                } else {
-                    for (var i = 0; i < myLastName.length; i++) {
-                        var letter = myLastName[i];
-                        var div = document.createElement('div');
-                        div.innerHTML = letter;
-
-                        div.onmouseover = function() {
-                            alert('Це літера [' + this.innerHTML + ']');
-                        };
-
-                        container.appendChild(div);
+                    if (char) {
+                        password += char;
                     }
                 }
+                return password;
+            }
+
+            const passGen = passwordGenerator();
+            passGen.next();
+
+            let input = prompt("Завдання 2: Введіть символ (або 'done'):");
+            let result;
+
+            while (input !== 'done') {
+                result = passGen.next(input);
+                input = prompt("Завдання 2: Введіть символ (або 'done'):");
+            }
+
+            result = passGen.next('done');
+
+            alert("Ваш пароль: " + result.value);
+        </script>
+
+        <script>
+            function* chatBot() {
+                const name = yield "Hi! What is your name?";
+                const feeling = yi
+                eld `Nice to meet you, ${name}! How are you?`;
+                return `Goodbye, ${name}!`;
+            }
+
+            const bot = chatBot();
+            let currentStep = bot.next();
+
+            while (!currentStep.done) {
+                let answer = prompt(currentStep.value);
+                currentStep = bot.next(answer);
+            }
+
+            alert(currentStep.value);
+        </script>
+
+        <script>
+            const userName = prompt("Завдання 4: Введіть ваше ім'я:");
+
+            const user = {
+                name: userName,
+                say() {
+                    alert("Hello, " + this.name);
+                }
             };
+
+            const helloButton = document.getElementById('hello');
+
+
+            helloButton.addEventListener('click', () => user.say());
+
         </script>
 
     </body>
