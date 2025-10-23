@@ -81,8 +81,7 @@
         <script>
             function* chatBot() {
                 const name = yield "Hi! What is your name?";
-                const feeling = yi
-                eld `Nice to meet you, ${name}! How are you?`;
+                const feeling = yield `Nice to meet you, ${name}! How are you?`;
                 return `Goodbye, ${name}!`;
             }
 
@@ -116,3 +115,4 @@
 
     </body>
 </html>
+
