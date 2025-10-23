@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Окремі Завдання</title>
+</head>
+<body>
+
+    <script>
+        function calculate() {
+            let result = "Зовнішня змінна";
+
+            if (true) {
+                let result = "Внутрішня змінна";
+                console.log("Значення зсередини блоку if: ", result);
+            }
+
+            console.log("Значення ззовні блоку if: ", result);
+        }
+
+        calculate();
+    </script>
+
+    <script>
+        const myJournalNumber = 25;
+        const secretNumber = myJournalNumber % 10;
+
+        const userInput = prompt("Вгадайте число від 0 до 9:");
+        const userNumber = parseInt(userInput);
+
+        if (userNumber === secretNumber) {
+            alert("Correct!");
+        } else {
+            alert("Wrong! (Секретне число було " + secretNumber + ")");
+        }
+    </script>
+
+    <script>
+        const name = prompt("Введіть ваше ім'я:");
+        const num1String = prompt("Введіть перше число:");
+        const num2String = prompt("Введіть друге число:");
+
+        const num1 = parseInt(num1String);
+        const num2 = parseInt(num2String);
+
+        const sum = num1 + num2;
+
+        const message = "Hello, " + name + "! The sum of " + num1 + " and " + num2 + " is " + sum + ".";
+
+        console.log(message);
+    </script>
+
+</body>
+</html>
