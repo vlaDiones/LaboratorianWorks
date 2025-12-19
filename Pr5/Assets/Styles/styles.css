@@ -1,0 +1,87 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.todo-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 350px;
+}
+
+h1 { text-align: center; }
+
+#todoInput {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+}
+
+.filters {
+    margin-bottom: 10px;
+    display: flex;
+    gap: 5px;
+}
+
+.filters button {
+    flex: 1;
+    cursor: pointer;
+    background: #eee;
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    gap: 10px;
+}
+
+.task-text {
+    flex-grow: 1;
+}
+
+.task-date {
+    font-size: 0.75rem;
+    color: #888;
+}
+
+.completed-text {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.delete-btn {
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+    border: 1px solid red;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 18px;
+}
+
+.edit-input {
+    flex-grow: 1;
+    padding: 5px;
+}

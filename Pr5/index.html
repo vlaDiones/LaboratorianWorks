@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="uk">
+    <head>
+        <meta charset="UTF-8">
+        <title>Simple ToDo List</title>
+        <link rel="stylesheet" href="./Assets/Styles/styles.css">
+    </head>
+    <body>
+
+        <div class="todo-container">
+            <h1>ToDo List</h1>
+
+            <input type="text" id="todoInput" placeholder="Додайте завдання">
+
+            <div class="filters">
+                <button onclick="renderTasks('all')">Всі</button>
+                <button onclick="renderTasks('active')">Невиконані</button>
+                <button onclick="renderTasks('completed')">Виконані</button>
+            </div>
+
+            <ul id="todoList"></ul>
+        </div>
+
+        <script src="./Assets/JS/scripts.js"></script>
+    </body>
+</html>
