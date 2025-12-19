@@ -1,0 +1,30 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body { font-family: 'Segoe UI', sans-serif; padding: 30px; }
+.block { margin-bottom: 20px; }
+
+
+#captcha_box { 
+    display: inline-flex; 
+    border: 1px solid #999; 
+    padding: 5px; 
+    background: #fff;
+}
+.digit-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 10px); 
+    grid-template-rows: repeat(5, 10px); 
+    gap: 1px; 
+    margin: 5px;
+}
+.p { width: 10px; height: 10px; background: #eee; }
+.p.on { background: red; } 
+
+.rotator-ui { display: flex; align-items: center; border: 1px solid #ccc; padding: 15px; width: 500px; }
+.rotator-main { flex-grow: 1; text-align: center; }
+.rotator-main img { width: 300px; height: auto; }
+.nav-link { color: blue; cursor: pointer; text-decoration: underline; margin: 0 10px; }
+
+#math_res { font-weight: bold; }

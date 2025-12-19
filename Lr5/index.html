@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Lr5</title>
+    <link rel="stylesheet" href="./Assets/Styles/styles.css">
+</head>
+<body>
+
+    <div class="block">
+        <h3>Температура процесора смартфона</h3>
+        <p>Температура за Фаренгейтом <input type="number" id="f_input"></p>
+        <p>Температура за Цельсієм <input type="number" id="c_input"></p>
+    </div>
+
+    <hr>
+
+    <div class="block">
+        <h3 id="score">Загальний рахунок 0% (0 правильних відповідей з 0)</h3>
+        <button id="btn_next">наступне завдання</button>
+        <div style="margin-top: 10px;">
+            <span id="math_quest">3 x 4 = </span>
+            <input type="number" id="user_ans" style="width: 50px;">
+            <button id="btn_check">перевірити</button>
+        </div>
+        <p id="math_res"></p>
+    </div>
+
+    <hr>
+
+    <div class="block">
+        <h3>Каталог смартфонів</h3>
+        <div id="rotator"></div>
+    </div>
+
+    <hr>
+
+    <div class="block">
+        <h3>Введіть число (Captcha)</h3>
+        <div id="captcha_box"></div>
+        <br>
+        <input type="text" id="captcha_input">
+        <p id="captcha_msg"></p>
+    </div>
+
+    <script src="./Assets/JS/scripts.js"></script>
+</body>
+</html>
