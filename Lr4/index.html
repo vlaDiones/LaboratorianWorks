@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uk">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Колекція коміксів</title>
+        <link rel="stylesheet" href="Assets/Styles/styles.css">
+    </head>
+    <body>
+
+    <div class="container">
+        <h1>Моя колекція коміксів</h1>
+
+        <div class="controls">
+            <button class="btn btn-add" onclick="addComicToCollection()">Додати комікс</button>
+            <button class="btn" onclick="sortComics()">Сортувати за роком</button>
+            <button class="btn" onclick="showUncollected()">Список бажаного</button>
+            <button class="btn" onclick="displayComics()">Показати всі</button>
+        </div>
+
+        <div id="comics-list">
+            </div>
+
+        <div class="stats-panel">
+            <strong>Аналітика колекції:</strong>
+            <p id="avg-year">Середній рік випуску: -</p>
+        </div>
+    </div>
+
+        <script src="Assets/JS/scripts.js"></script>
+    </body>
+</html>
