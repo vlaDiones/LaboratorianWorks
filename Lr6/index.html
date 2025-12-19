@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Генератор</title>
+    <link rel="stylesheet" href="./Assets/Styles/styles.css">
+</head>
+<body>
+
+    <div id="tabs">
+        <div class="tab whiteborder">border-radius</div>
+        <div class="tab">float</div>
+        <div class="tab">font-family</div>
+
+        <div class="tabContent show">
+            <div class="control-row">
+                Верхній лівий радіус: 
+                <input type="range" id="rtl" min="0" max="100" value="0" oninput="generate()">
+                <input type="text" id="ttl" value="0">
+            </div>
+            <div id="block">Зразок тексту</div>
+            <textarea id="out" readonly></textarea>
+        </div>
+
+        <div class="tabContent hide">
+            <h3>Налаштування Float</h3>
+            <div class="control-row">
+                Оберіть сторону: 
+                <select id="floatSel" onchange="generateFloat()">
+                    <option value="none">none</option>
+                    <option value="left">left</option>
+                    <option value="right">right</option>
+                </select>
+            </div>
+            <div style="border: 1px dashed #ccc; padding: 10px;">
+                <div id="floatBlock" style="width: 50px; height: 50px; background: green; margin: 5px;"></div>
+                <p>Цей текст буде обтікати зелений блок залежно від обраної властивості float.</p>
+            </div>
+            <textarea id="outFloat" readonly style="width: 100%; height: 40px; margin-top: 10px;"></textarea>
+        </div>
+
+        <div class="tabContent hide">
+            <h3>Налаштування Font Family</h3>
+            <div class="control-row">
+                Оберіть шрифт: 
+                <select id="fontSel" onchange="generateFont()">
+                    <option value="Arial, sans-serif">Arial</option>
+                    <option value="'Times New Roman', serif">Times New Roman</option>
+                    <option value="'Courier New', monospace">Courier New</option>
+                    <option value="Georgia, serif">Georgia</option>
+                    <option value="Verdana, sans-serif">Verdana</option>
+                </select>
+            </div>
+            <div id="fontPreview" style="font-size: 18px; border: 1px solid #ccc; padding: 10px;">
+                Швидкий коричневий лис стрибає через лінивого пса.
+            </div>
+            <textarea id="outFont" readonly style="width: 100%; height: 40px; margin-top: 10px;"></textarea>
+        </div>
+    </div>
+
+    <script src="./Assets/JS/scripts.js"></script>
+</body>
+</html>

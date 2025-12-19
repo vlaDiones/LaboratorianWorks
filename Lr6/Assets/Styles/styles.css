@@ -1,0 +1,64 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#tabs .tab {
+    display: inline-block;
+    padding: 5px 10px;
+    cursor: pointer;
+    position: relative;
+    z-index: 5;
+    border: 1px solid #ccc;
+    background: #f1f1f1;
+}
+
+#tabs .whiteborder {
+    background: #fff !important;
+    border-bottom: 1px solid #fff !important;
+    border-radius: 3px 3px 0 0;
+}
+
+#tabs .tabContent {
+    width: 450px;
+    min-height: 250px;
+    border: 1px solid #707070;
+    position: relative;
+    top: -1px;
+    z-index: 1;
+    padding: 15px;
+    border-radius: 0 0 3px 3px;
+}
+
+#tabs .hide {
+    display: none;
+}
+
+#tabs .show {
+    display: block;
+}
+
+.control-row {
+    margin: 10px 0;
+}
+
+#block {
+    width: 100px;
+    height: 100px;
+    background: green;
+    margin: 20px 0;
+    border: 1px solid #000;
+}
+
+textarea {
+    display: block;
+    margin-top: 10px;
+    padding: 5px;
+    font-family: monospace;
+    resize: none;
+}
+
+select {
+    padding: 3px;
+    margin-left: 10px;
+}
